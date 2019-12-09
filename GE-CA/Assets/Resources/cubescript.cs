@@ -9,7 +9,7 @@ public class cubescript : MonoBehaviour
     void Start()
     {
         //gameObject.GetComponent<Renderer>().material.color = Color.HSVToRGB(Random.value, 1, 1);
-        Destroy(gameObject, 5);
+        Destroy(gameObject, 3.2f);
         spawnCubes.gameObjCount--;
     }
 

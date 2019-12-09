@@ -222,6 +222,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numObjects: 50
+  maxObj: 1000
+  numRings: 40
   Cube: {fileID: 2338119915252664612, guid: 8c2545fc319855b43b7487c493d10fcb, type: 3}
   radius: 10
   maxScale: 50
