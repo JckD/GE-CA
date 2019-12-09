@@ -6,6 +6,9 @@ public class spawnCubes : MonoBehaviour
 {
 
     public int numObjects = 50;
+    public int maxObj = 1000;
+    public static int gameObjCount = 0;
+    public int numRings = 40;
     public GameObject Cube;
     public GameObject[,] ring = new GameObject[300, 300];
    
@@ -16,11 +19,20 @@ public class spawnCubes : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        InvokeRepeating("MakeRing", 0.0f, 2.0f);
+        Debug.Log(ring.Length);
+        Debug.Log(getAudioData.fa_samples.Length);
+    }
+
+    void MakeRing()
+    {
+        numRings++;
         //Get position of camera
         Vector3 centerPos = Camera.main.transform.position;
-        centerPos.z += 5;
-       for (int j = 0; j < 40; j++)
-       {
+        centerPos.z += 10;
+
+        for (int j = 0; j < 40; j++)
+        {
             centerPos.z += 1;
             for (int i = 0; i < numObjects; i++)
             {
@@ -29,22 +41,27 @@ public class spawnCubes : MonoBehaviour
                 Vector3 direction = rot * Vector3.up;
 
                 Vector3 position = centerPos + (direction * radius);
-                GameObject instanceCube = (GameObject)Instantiate(Cube, position, rot);
+                if (gameObjCount <= maxObj)
+                {
+                    GameObject instanceCube = (GameObject)Instantiate(Cube, position, rot);
+                    gameObjCount++;
+                    ring[j, i] = instanceCube;
 
-                ring[j,i] = instanceCube;
+                }
+
                 //tunnel[j] = ring[i];
 
             }
-            
         }
-        Debug.Log(ring.Length);
-        Debug.Log(getAudioData.fa_samples.Length);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        for (int l = 0; l < 40; l++)
+        
+        //
+        for (int l = 0; l < numRings; l++)
         {
             for (int k = 0; k < numObjects; k++)
             {

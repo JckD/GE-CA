@@ -9,6 +9,7 @@ public class cubescript : MonoBehaviour
     void Start()
     {
         Destroy(gameObject, 5);
+        spawnCubes.gameObjCount--;
     }
 
     // Update is called once per frame
