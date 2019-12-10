@@ -20,12 +20,12 @@ public class spawnCubes : MonoBehaviour
     void Start()
     {
         //Invoke("MakeRing", 0.0f);
-        InvokeRepeating("MakeRing", 0.0f, 2.0f);
+        InvokeRepeating("MakeRing", 1.0f, 0.1f);
         //Get position of camera
         Vector3 centerPos = Camera.main.transform.position;
         centerPos.z += 10;
         float rand;
-        for (int j = 0; j < 20; j++)
+        for (int j = 0; j < 80; j++)
         {
             centerPos.z += 1;
             rand = Random.value;
@@ -62,7 +62,7 @@ public class spawnCubes : MonoBehaviour
         centerPos.z += 20;
         float rand;
 
-        for (int j = 0; j < 40; j++)
+        for (int j = 0; j < 1; j++)
         {
             centerPos.z += 1;
             rand = Random.value;
