@@ -23,7 +23,7 @@ public class spawnCubes : MonoBehaviour
         //Invoke("MakeRing", 0.0f);
         InvokeRepeating("MakeRing", 1.0f, 0.1f);
         //Get position of camera
-        Vector3 centerPos = Camera.main.transform.position;
+        Vector3 centerPos = transform.position;
         centerPos.z += 10;
         float rand;
         for (int j = 0; j < 80; j++)
@@ -59,7 +59,7 @@ public class spawnCubes : MonoBehaviour
     {
         numRings++;
         //Get position of camera
-        Vector3 centerPos = Camera.main.transform.position;
+        Vector3 centerPos = transform.position;
         centerPos.z += 20;
         float rand;
 

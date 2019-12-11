@@ -19,10 +19,10 @@ public class CameraMovement : MonoBehaviour
     {
         
         Vector3 newPos = transform.position;
-        newPos.x += (Mathf.PerlinNoise(transform.position.x, transform.position.x) * 3);
-        newPos.y += (Mathf.PerlinNoise(transform.position.y, transform.position.y) * 3);
+        newPos.x = (Mathf.PerlinNoise(transform.position.x, transform.position.z) * 15);
+        newPos.y = (Mathf.PerlinNoise(transform.position.y, transform.position.z) * 15);
         newPos.z += 5;
-        transform.position = Vector3.Lerp(transform.position, newPos, Time.deltaTime * 2.0f);
+        transform.position = Vector3.Slerp(transform.position, newPos, Time.deltaTime * 2.0f);
 
     }
 
