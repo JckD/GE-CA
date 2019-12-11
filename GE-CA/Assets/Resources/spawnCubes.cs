@@ -14,6 +14,7 @@ public class spawnCubes : MonoBehaviour
    
     public int radius = 10;
     public float maxScale = 50;
+    //public Transform cameraPos;
 
 
     // Start is called before the first frame update
