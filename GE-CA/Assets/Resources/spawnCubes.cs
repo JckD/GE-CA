@@ -11,18 +11,15 @@ public class spawnCubes : MonoBehaviour
     public int numRings = 40;
     public GameObject Cube;
     public GameObject[,] ring = new GameObject[300, 300];
-   
     public int radius = 10;
     public float maxScale = 50;
-    //public Transform cameraPos;
-    Material Material;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        //Invoke("MakeRing", 0.0f);
-        InvokeRepeating("MakeRing", 1.0f, 0.1f);
+       
+        InvokeRepeating("MakeRing", 1.0f, 0.2f);
         //Get position of camera
         Vector3 centerPos = transform.position;
         centerPos.z += 10;
@@ -48,12 +45,8 @@ public class spawnCubes : MonoBehaviour
 
                 }
 
-                //tunnel[j] = ring[i];
-
             }
         }
-        Debug.Log(ring.Length);
-        Debug.Log(getAudioData.fa_samples.Length);
     }
 
     void MakeRing()
@@ -84,18 +77,13 @@ public class spawnCubes : MonoBehaviour
                     ring[j, i] = instanceCube;
 
                 }
-
-                //tunnel[j] = ring[i];
-
             }
         }
-
     }
 
     // Update is called once per frame
     void Update()
-    {
-        
+    {      
         for (int l = 0; l < numRings; l++)
         {
             for (int k = 0; k < numObjects; k++)

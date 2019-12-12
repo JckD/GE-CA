@@ -7,7 +7,6 @@ public class getAudioData : MonoBehaviour
 {
     // Listen to the audio source every frame and get samples from spectrum data into the float array
     AudioSource a_audioSource;
-    //
     public static float[] fa_samples = new float[512];
     public static float[] freqBand = new float[8];
 
