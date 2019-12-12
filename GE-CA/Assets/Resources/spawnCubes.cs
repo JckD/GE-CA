@@ -15,6 +15,7 @@ public class spawnCubes : MonoBehaviour
     public int radius = 10;
     public float maxScale = 50;
     //public Transform cameraPos;
+    Material Material;
 
 
     // Start is called before the first frame update
@@ -60,7 +61,7 @@ public class spawnCubes : MonoBehaviour
         numRings++;
         //Get position of camera
         Vector3 centerPos = transform.position;
-        centerPos.z += 20;
+        centerPos.z += 15;
         float rand;
 
         for (int j = 0; j < 1; j++)
@@ -77,7 +78,7 @@ public class spawnCubes : MonoBehaviour
                 if (gameObjCount <= maxObj)
                 {
                     GameObject instanceCube = (GameObject)Instantiate(Cube, position, rot);
-                    instanceCube.GetComponent<Renderer>().material.color = Color.HSVToRGB(rand, 1, 1);
+                    instanceCube.GetComponent<Renderer>().material.color = Color.HSVToRGB(rand,1,1);
 
                     gameObjCount++;
                     ring[j, i] = instanceCube;
@@ -95,7 +96,6 @@ public class spawnCubes : MonoBehaviour
     void Update()
     {
         
-        //
         for (int l = 0; l < numRings; l++)
         {
             for (int k = 0; k < numObjects; k++)
