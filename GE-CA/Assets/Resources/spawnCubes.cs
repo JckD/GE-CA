@@ -5,7 +5,7 @@ using UnityEngine;
 public class spawnCubes : MonoBehaviour
 {
 
-    public int numObjects = 50;
+    public int numObjects = 64;
     public int maxObj = 1000;
     public static int gameObjCount = 0;
     public int numRings = 40;
