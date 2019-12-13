@@ -17,49 +17,25 @@ public class spawnCubes : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        MakeRing();
+        InvokeRepeating("MakeRing", 2.1f, 0.2f);
        
-        InvokeRepeating("MakeRing", 1.4f, 0.2f);
-        //Get position of camera
-        Vector3 centerPos = transform.position;
-        centerPos.z += 10;
-        
-   
-
-        for (int j = 0; j < 80; j++)
-        {
-            centerPos.z += 1;
-           
-            for (int i = 0; i < numObjects; i++)
-            {
-                Vector3 vec = Quaternion.Euler(0, -90, 0) * Vector3.right;
-                Quaternion rot = Quaternion.AngleAxis(i * 8, vec);
-                Vector3 direction = rot * Vector3.up;
-
-                Vector3 position = centerPos + (direction * radius);
-                if (gameObjCount <= maxObj)
-                {
-                    GameObject instanceCube = (GameObject)Instantiate(Cube, position, rot);
-                   
-                    instanceCube.GetComponent<Renderer>().material.color = Color.HSVToRGB(Mathf.PingPong(Time.time * 1, 1), 1, 1);
-
-                    gameObjCount++;
-                    ring[j, i] = instanceCube;
-
-                }
-
-            }
-        }
     }
 
     void MakeRing()
     {
-        numRings++;
+        int numRings = 1;
+        // After the first call of method when invoking make numRings 1
+        if (!IsInvoking("MakeRing"))
+        {
+            numRings = 80;
+        }
         //Get position of camera
         Vector3 centerPos = transform.position;
         centerPos.z += 15;
   
 
-        for (int j = 0; j < 1; j++)
+        for (int j = 0; j < numRings; j++)
         {
             centerPos.z += 1;
         
@@ -73,6 +49,7 @@ public class spawnCubes : MonoBehaviour
                 if (gameObjCount <= maxObj)
                 {
                     GameObject instanceCube = (GameObject)Instantiate(Cube, position, rot);
+                    //Use Mathf.Pingpong to go back and fourth through range of colours
                     instanceCube.GetComponent<Renderer>().material.color = Color.HSVToRGB(Mathf.PingPong(Time.time * 1, 1), 1,1);
 
                     gameObjCount++;

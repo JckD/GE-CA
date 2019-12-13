@@ -10,6 +10,7 @@ public class getAudioData : MonoBehaviour
     public static float[] fa_samples = new float[512];
     public static float[] freqBand = new float[8];
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,10 +21,13 @@ public class getAudioData : MonoBehaviour
     void Update()
     {
         GetSpectrumAudioSource();
-        MakeFrequencyBnads();
+        MakeFrequencyBands();
+        
     }
 
-    void MakeFrequencyBnads()
+   
+
+    void MakeFrequencyBands()
     {
         int count = 0;
 
