@@ -17,20 +17,13 @@ public class spawnCubes : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MakeRing();
-        InvokeRepeating("MakeRing", 2.1f, 0.2f);
+        InvokeRepeating("MakeRing", 0.0f, 0.15f);
        
     }
 
     void MakeRing()
     {
         int numRings = 1;
-        // After the first call of method when invoking make numRings 1
-        if (!IsInvoking("MakeRing"))
-        {
-            numRings = 80;
-        }
-        //Get position of camera
         Vector3 centerPos = transform.position;
         centerPos.z += 15;
   
